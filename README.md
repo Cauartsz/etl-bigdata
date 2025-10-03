@@ -3,6 +3,7 @@ seguintes temas disponibilizados na atividade:
 
 APIs:
 ➢ COVID-19 API (https://disease.sh/docs/ ) — dados diários da pandemia por país
+
 ➢ World Bank API (https://datahelpdesk.worldbank.org/) — indicadores
 socioeconômicos (PIB, desemprego, educação, etc.)
 
@@ -10,7 +11,8 @@ Temas para os 5 ETLs
 1. Dados Diários de COVID-19 por País
 Extração dos dados oficiais, transformação para calcular taxas de crescimento, médias
 móveis e tendências.
-2. Indicadores Socioeconômicos por País
+
+3. Indicadores Socioeconômicos por País
 Extração e transformação de indicado
 
 Observações importantes para dar continuidade ao código
