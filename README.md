@@ -1,3 +1,21 @@
+No nosso projeto, estamos desenvolvendo a partir dos
+seguintes temas disponibilizados na atividade:
+
+APIs:
+➢ COVID-19 API (https://disease.sh/docs/ ) — dados diários da pandemia por país
+➢ World Bank API (https://datahelpdesk.worldbank.org/) — indicadores
+socioeconômicos (PIB, desemprego, educação, etc.)
+
+Temas para os 5 ETLs
+1. Dados Diários de COVID-19 por País
+Extração dos dados oficiais, transformação para calcular taxas de crescimento, médias
+móveis e tendências.
+2. Indicadores Socioeconômicos por País
+Extração e transformação de indicado
+
+Observações importantes para dar continuidade ao código
+a partir de agora (03/10/25 - 15:03):
+
 1. Ainda é preciso criar um usuário, senha e cluster de
 banco de dados no site do MongoDB (Tentei na minha conta
 mas não funcionou)
@@ -17,7 +35,7 @@ terminal do código:
 - python dashboard.py
 
 - Acesse no navegador: http://127.0.0.1:8050
-📊 O que você verá
+- 📊 O que você verá:
 - Gráfico de dispersão: Casos de COVID vs PIB (bolha = taxa de desemprego, cor = educação)
 - Linha temporal: Evolução de Casos x PIB x Desemprego por ano
 - Barras: Indicador de Educação ao longo do tempo
