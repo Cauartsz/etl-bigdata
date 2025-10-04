@@ -20,7 +20,8 @@ def transform_worldbank_data(raw_data, indicator_name):
     try:
         df = pd.DataFrame(raw_data)
         df = df[["date", "value"]]
-        df.rename(columns={"value": indicator_name}, inplace=True)
+        # LINHA CORRIGIDA: A linha que renomeava a coluna 'value' foi removida.
+        # Agora o script de integração encontrará a coluna 'value' que ele espera.
         df["date"] = pd.to_datetime(df["date"], format="%Y")
         df.sort_values("date", inplace=True)
         return df
@@ -52,7 +53,13 @@ if __name__ == "__main__":
         "Educação": "SE.ENR.PRSC.FM.ZS"
     }
 
+    # Limpa a coleção antiga para evitar dados duplicados ou mal formatados de execuções anteriores
+    db = get_db()
+    db["socioeconomic_data"].delete_many({"country": "BR"})
+    print("Coleção 'socioeconomic_data' limpa para o país BR.")
+
     for name, code in indicators.items():
         raw = extract_worldbank_data(code, "BR", 2015, 2022)
-        df = transform_worldbank_data(raw, name)
-        load_worldbank_data(df, name, "BR")
+        if raw: # Garante que os dados foram extraídos antes de prosseguir
+            df = transform_worldbank_data(raw, name)
+            load_worldbank_data(df, name, "BR")
